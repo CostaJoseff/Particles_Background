@@ -1,4 +1,4 @@
-# Particles_Background
+![1](https://github.com/CostaJoseff/Particles_Background/assets/97255656/004ae328-ceb4-44e6-9b8b-4d0c8a1dc91b)# Particles_Background
 ![Badge aplicando melhorias](https://img.shields.io/badge/Status-Aplicando_melhorias-orange)
 
 Essa é a minha versão de um background animado maravilhoso no estilo de grafos ( https://codepen.io/VincentGarreau/pen/bGxvQd ), a idéia era praticar um pouco animações com canvas, mas ficou tão legal que decidi por aqui.
@@ -26,10 +26,11 @@ O codigo, atualmente, faz parte da classe de complexidade Quadrática - O(N²)
 - 1° Efetue o download do arquivo e coloque em algum local no seu projeto.
 - 2° No componente desejado efetue o import do GraphBackGround.
   
-  ![1](https://github.com/CostaJoseff/Particles_Background/assets/97255656/e5847096-baa0-4265-8c69-370a06260445)
+  ![1](https://github.com/CostaJoseff/Particles_Background/assets/97255656/944597c8-5417-4265-8bc0-69a9b25506be)
+
 - 3° Defina os parâmetros necessários para a criação do objeto.
   
-  ![2](https://github.com/CostaJoseff/Particles_Background/assets/97255656/9d243127-0f3b-4c98-8765-da22f6c94a6b)
+  ![2](https://github.com/CostaJoseff/Particles_Background/assets/97255656/cd0dbfcc-fdfb-4b79-9dde-e08a196f8a97)
   
   ** Cuidado com a quantidade de pontos, quanto mais pontos, mais pesado vai ficar...
   
@@ -42,15 +43,18 @@ O codigo, atualmente, faz parte da classe de complexidade Quadrática - O(N²)
   É possível alterar, basta adicionar os 2 parametros no construtor.
 - 4° Instancie o objeto.
   
-  ![image](https://github.com/CostaJoseff/Particles_Background/assets/97255656/d12c41be-3da8-41bc-9fac-599827a1a6ed)
+  ![3](https://github.com/CostaJoseff/Particles_Background/assets/97255656/01e09e1d-c119-4e25-a792-d1ebbcfae975)
+
   
 - 5° Para finalizar, crie um canvas e adicione id="background".
   
-  ![image](https://github.com/CostaJoseff/Particles_Background/assets/97255656/55ad5611-fa94-4b55-a9b3-db41df4f1d2c)
+  ![4](https://github.com/CostaJoseff/Particles_Background/assets/97255656/00649653-cb6f-4358-8e8f-a731d97d12f2)
+
   
 Já no CSS eu normalmente deixo a configuração abaixo:
 
-  ![image](https://github.com/CostaJoseff/Particles_Background/assets/97255656/2396a3f2-f198-4545-b1fb-a291c06e38b6)
+  ![5](https://github.com/CostaJoseff/Particles_Background/assets/97255656/ba5afc00-f15b-40e8-94c7-5a8251871f1d)
+
 
 Pronto!!
 Agora só apreciar seu novo background.
