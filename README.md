@@ -44,7 +44,7 @@ O codigo, atualmente, faz parte da classe de complexidade Quadrática - O(N²)
   
   ![image](https://github.com/CostaJoseff/Particles_Background/assets/97255656/d12c41be-3da8-41bc-9fac-599827a1a6ed)
   
-- 5° Para finalizar, crie um <canvas> e adicione id="background".
+- 5° Para finalizar, crie um canvas e adicione id="background".
   
   ![image](https://github.com/CostaJoseff/Particles_Background/assets/97255656/55ad5611-fa94-4b55-a9b3-db41df4f1d2c)
   
