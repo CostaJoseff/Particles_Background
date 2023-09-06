@@ -6,6 +6,7 @@ Essa é a minha versão de um background animado maravilhoso no estilo de grafos
 A versão atual não conta com interações com o cursor e está em processo de melhorias.
 
 (Antes) O codigo, faz parte da classe de complexidade Quadrática - O(n²).
+
 (Atualmente) Com melhorias aplicadas no laço for² consegui Σ(n) partindo de n-1 até 0.
 
 ### Melhorias futuras
@@ -21,7 +22,8 @@ A versão atual não conta com interações com o cursor e está em processo de 
 ** A versão atual só pode ser utilizada como background do body e está setada com um tamanho fixo (o tamanho total da janela).
 
 ** (Antes) Estava utilizando Angular quando produzi o arquivo, por esse motivo o arquivo será em typescript.
-** (Atualmente) Já é possível utilizar em projetos com js.
+
+** (Atualmente) O js está disponível.
 
 # TypeScript
 
@@ -35,10 +37,13 @@ A versão atual não conta com interações com o cursor e está em processo de 
   ![2](https://github.com/CostaJoseff/Particles_Background/assets/97255656/cd0dbfcc-fdfb-4b79-9dde-e08a196f8a97)
   
   ** Cuidado com a quantidade de pontos, quanto mais pontos, mais pesado vai ficar...
+  
   (Antes) O limite de pontos recomendado (baseado na minha máquina) é de 200 a 250 pts
+  
   (Atualmente) O limite de pontos agora chega em 650 pontos
 
   (Antes) A velocidade dos pontos deve ser um valor inteiro
+  
   (Atualmente) Agora é possível definir a velocidade como float, permitindo uma animação mais lenta.
   
   ** Lembre-se que o código está passando por melhorias, ele ainda é quadratico (não mais :) )
@@ -49,7 +54,8 @@ A versão atual não conta com interações com o cursor e está em processo de 
       
   É possível alterar, basta adicionar os 2 parametros no construtor.
 
-  É possível também alterar a distancia dos links entre os pontos (não deixei como parametro da class pois seria uma arma no seu PC pois ja temos a quantidade de pontos).
+  É possível também alterar a distancia dos links entre os pontos (não deixei como parametro da class pois seria uma arma no seu PC pois ja temos quantidade de pontos que gera muito peso).
+  
   Mesmo assim, é possível alterar isso também, só cuidado ao aumentar a distancia limite, um limite grande aumenta a quantidade de processamento de arestas.
   
 - 4° Instancie o objeto.
@@ -68,8 +74,7 @@ Já no CSS eu normalmente deixo a configuração abaixo:
 
 # JavaScript:
 
-Na versão para js é necessário apenas adicionar o ID ao canvas (como listado no TypeScript) e adicionar o script no seu HTML
-A instância do objeto está acontecendo nas ultimas linhas do codigo.
+Na versão para js é necessário apenas adicionar o ID ao canvas (como listado no TypeScript) e adicionar o script no seu HTML. A instância do objeto está acontecendo nas ultimas linhas do codigo.
 
 ![image](https://github.com/CostaJoseff/Particles_Background/assets/97255656/184bf65d-7086-4f7b-afa5-d04945b15a80)
 
