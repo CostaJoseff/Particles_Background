@@ -67,10 +67,7 @@ A versão atual não conta com interações com o cursor e está em processo de 
   
   ![4](https://github.com/CostaJoseff/Particles_Background/assets/97255656/00649653-cb6f-4358-8e8f-a731d97d12f2)
 
-  
-Já no CSS eu normalmente deixo a configuração abaixo:
-
-  ![5](https://github.com/CostaJoseff/Particles_Background/assets/97255656/ba5afc00-f15b-40e8-94c7-5a8251871f1d)
+#
 
 # JavaScript:
 
