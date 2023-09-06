@@ -67,7 +67,6 @@ A versão atual não conta com interações com o cursor e está em processo de 
   
   ![4](https://github.com/CostaJoseff/Particles_Background/assets/97255656/00649653-cb6f-4358-8e8f-a731d97d12f2)
 
-#
 
 # JavaScript:
 
