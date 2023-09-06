@@ -1,4 +1,4 @@
-![image](https://github.com/CostaJoseff/Particles_Background/assets/97255656/eb8f1f53-e502-446a-a6a2-ca85a69bfe56)# Particles_Background
+# Particles_Background
 ![Badge aplicando melhorias](https://img.shields.io/badge/Status-Aplicando_melhorias-orange)
 
 Essa é a minha versão de um background animado maravilhoso no estilo de grafos ( https://codepen.io/VincentGarreau/pen/bGxvQd ), a idéia era praticar um pouco animações com canvas, mas ficou tão legal que decidi por aqui.
