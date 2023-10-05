@@ -63,32 +63,46 @@ export class GraphBackGround {
       }
       let randomX = Math.random();
       let randomY = Math.random();
-      var ponto = {
+      let ponto = {
           id: i,
           x: x,
           y: y,
           velocidadeX: randomX * this.velocidadeDosPontos * (randomY < 0.5 ? 1 : -1),
           velocidadeY: randomY * this.velocidadeDosPontos * (randomX < 0.5 ? 1 : -1),
           tamanho: randomX * this.tamanhoDosPontos,
-          links: []
       };
 
       this.pontos.push(ponto);
+      this.inserirOrdenado(ponto);
     }
+  }
+
+  private inserirOrdenado(ponto: any) {
+    for (let i = this.pontos.length-1; i > 0; i--) {
+      if (this.pontos[i-1].x <= ponto.x) {
+        return;
+      } else {
+        this.swap(i, i-1);
+      }
+    }
+  }
+
+  private swap(indice1: any, indice2: any) {
+    let ponto1 = this.pontos[indice1];
+    this.pontos[indice1] = this.pontos[indice2];
+    this.pontos[indice2] = ponto1;
   }
 
   private angulo(angulo: number) {
     return (Math.PI/180)*angulo;
   }
 
-  private desenharPontos() {
-    this.pontos.forEach((ponto) => {
-      this.ctx.fillStyle = `rgba(${this.corDosPontos[0]}, ${this.corDosPontos[1]}, ${this.corDosPontos[2]})`;
-      this.ctx.beginPath();
-      this.ctx.arc(ponto.x, ponto.y, ponto.tamanho, this.angulo(0), this.angulo(360));
-      this.ctx.fill();
-      this.ctx.closePath();
-    });
+  private desenharPontos(ponto: any) {
+    this.ctx.fillStyle = `rgba(${this.corDosPontos[0]}, ${this.corDosPontos[1]}, ${this.corDosPontos[2]})`;
+    this.ctx.beginPath();
+    this.ctx.arc(ponto.x, ponto.y, ponto.tamanho, this.angulo(0), this.angulo(360));
+    this.ctx.fill();
+    this.ctx.closePath();
   }
 
   private calcularDistancia(x1: number, y1: number, x2: number, y2: number) {
@@ -99,19 +113,7 @@ export class GraphBackGround {
   }
 
   private calcularNivelDeTransparencia(distancia: number) {
-    return (1 - (distancia / 100)).toFixed(3);
-  }
-
-  private linkarDesenharLinks(ponto1: any, ponto2: any, distancia: number) {
-    this.ctx.beginPath();
-    this.ctx.moveTo(ponto1.x, ponto1.y);
-    this.ctx.lineTo(ponto2.x, ponto2.y);
-    this.ctx.lineWidth = this.espessuraDasLinhas;
-    this.ctx.strokeStyle = `rgba(${this.corDosLinks[0]}, ${this.corDosLinks[1]}, ${this.corDosLinks[2]}, ${this.calcularNivelDeTransparencia(distancia)})`;
-    this.ctx.stroke();
-    this.ctx.closePath();
-    ponto1.links.push(ponto2);
-    ponto2.links.push(ponto1);
+    return (1 - (distancia / this.distanciaLimite)).toFixed(3);
   }
 
   private desenharLinks(ponto1: any, ponto2: any, distancia: number) {
@@ -124,46 +126,43 @@ export class GraphBackGround {
     this.ctx.closePath();
   }
 
-  private deslinkar(ponto1: any, ponto2: any) {
-    ponto1.links = ponto1.links.filter((ponto: any) => ponto !== ponto2);
-    ponto2.links = ponto2.links.filter((ponto: any) => ponto !== ponto1);
-  }
-
   private definirLinks() {
     for (let i = 0; i < this.pontos.length; i++) {
       let ponto1 = this.pontos[i];
+      this.desenharPontos(ponto1);
       for (let j = i + 1; j < this.pontos.length; j++) {
         let ponto2 = this.pontos[j];
-        if (ponto1 === ponto2) {return}
-        const distancia = this.calcularDistancia(ponto1.x, ponto1.y, ponto2.x, ponto2.y);
-        const estaoLinkados = (ponto1.links.includes(ponto2) || ponto2.links.includes(ponto1));
-        const estaPerto = distancia < this.distanciaLimite;
-        if (estaoLinkados && estaPerto) {
-          this.desenharLinks(ponto1, ponto2, distancia);
-        } else if (estaPerto) {
-          this.linkarDesenharLinks(ponto1, ponto2, distancia);
-        } else if (estaoLinkados) {
-          this.deslinkar(ponto1, ponto2);
+        if (ponto1.x + this.distanciaLimite < ponto2.x) {
+          break;
         }
+        const distancia = this.calcularDistancia(ponto1.x, ponto1.y, ponto2.x, ponto2.y);
+        const estaPerto = distancia < this.distanciaLimite;
+        if (estaPerto) {
+          this.desenharLinks(ponto1, ponto2, distancia);
+        } 
       }
     }
   }
 
   private gerarImagemEstatica() {
     this.definirLinks();
-    this.desenharPontos();
   }
 
   private gerarAnimacao() {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    this.pontos.forEach((ponto) => {
+    for (let i = 1; i < this.pontos.length-1; i++) {
+      let ponto = this.pontos[i];
       if (ponto.x >= this.largura || ponto.x <= 0) {ponto.velocidadeX = ponto.velocidadeX * (-1)}
       if (ponto.y >= this.altura || ponto.y <= 0) {ponto.velocidadeY = ponto.velocidadeY * (-1)}
       ponto.x += ponto.velocidadeX;
       ponto.y += ponto.velocidadeY;
-    });
+      if (this.pontos[i-1].x > ponto.x) {
+        this.swap(i-1, i);
+      } else if (this.pontos[i+1] < ponto.x) {
+        this.swap(i+1, i);
+      }
+    }
     this.definirLinks();
-    this.desenharPontos();
     requestAnimationFrame(() => this.gerarAnimacao());
   }
 }
