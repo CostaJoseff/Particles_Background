@@ -40,7 +40,7 @@ A versão atual não conta com interações com o cursor e está em processo de 
   
   (Antes) O limite de pontos recomendado (baseado na minha máquina) é de 200 a 250 pts
   
-  (Atualmente) O limite de pontos agora chega em 650 pontos
+  (Atualmente) O limite de pontos agora chega em 1050 pontos
 
   (Antes) A velocidade dos pontos deve ser um valor inteiro
   
